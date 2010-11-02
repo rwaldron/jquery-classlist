@@ -5,7 +5,7 @@
     var arg, args, ret, apiFn, list, 
         temp = [], 
         elem = this[0], 
-        hasClassList = jQuery.support.classList, 
+        hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
         fixMethods = {
           "contains" : "has"
         },
