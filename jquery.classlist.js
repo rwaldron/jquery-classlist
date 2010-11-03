@@ -63,17 +63,17 @@
         if ( jQuery.fn[ apiFn ] ) {
           
           if ( !hasClassList ) {
-            // Supports jQuery addClass and removeClass multi 
+            // Uses jQuery addClass, removeClass and toggleClass in single and multi mode 
+            // as fallback to native classList methods
             return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
           }
-          
           
           //  Use native classList.contains() for performance
           if ( args[0] === 'contains' ) {
             return elem.classList.contains( args[1] );
           } 
           
-          
+          //  Use native classlist.add,remove,toggle for performance
           list  = args.slice(1);
           
           this.each(function () {
@@ -88,11 +88,11 @@
           return hasClassList ? 
                  elem.classList.item(+args[1]) : 
                  jQuery(elem).classlist()[ +args[1] ];
+                 // might be faster: elem.className.split(" ")[ +args[1] ]
         }                 
       }
       
       return jQuery(elem).classlist();
     }
   });
-  
 })(jQuery);
