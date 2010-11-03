@@ -1,4 +1,5 @@
-var origclasses = [ "foo", "bar", "baz", "quux" ], 
+var emptyclass  = [],
+    origclasses = [ "foo", "bar", "baz", "quux" ], 
     modclasses = [ "foo", "bar", "baz", "bananas",  "quux" ],
     endclasses = [ "bar", "baz", "bananas",  "quux" ],
     usecases = [
@@ -20,11 +21,14 @@ var origclasses = [ "foo", "bar", "baz", "quux" ],
 
 test("jQuery.fn.classlist", function () {
   
-  var $div  = $('#potters-field');
+  var $div  = $('#potters-field'), 
+      $none = $('#no-class');
   
   $div.classlist();
+  $none.classlist();
   
   same(origclasses, $div.classlist(), "Calling $div.classlist()" );
+  same(!!emptyclass , !!$none.classlist(), "Calling $none.classlist()" );
 
   for ( var i = 0, len = usecases.length; i < len; i++ ) {
     //console.log( "$div.classlist('"+usecases[i]+"')", $div.classlist( usecases[i] ) );
