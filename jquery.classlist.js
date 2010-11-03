@@ -65,7 +65,8 @@
           if ( !hasClassList ) {
             // Uses jQuery addClass, removeClass and toggleClass in single and multi mode 
             // as fallback to native classList methods
-            return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
+            // Returns as documented for these methods
+            return jQuery(this)[ apiFn ]( args.slice(1).join(" ") )
           }
           
           //  Use native classList.contains() for performance
@@ -85,6 +86,7 @@
         } else {
 
           //  Should only resolve to this when item() is called;
+          //  Return only for the first matched element
           return hasClassList ? 
                  elem.classList.item(+args[1]) : 
                  jQuery(elem).classlist()[ +args[1] ];
