@@ -61,12 +61,34 @@
 
         // Check if we can shortcut to an existing method
         if ( jQuery.fn[ apiFn ] ) {
-          // Supports jQuery addClass and removeClass multi 
-          return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
-        } 
+          
+          if ( !hasClassList ) {
+            // Supports jQuery addClass and removeClass multi 
+            return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
+          }
+          
+          
+          //  Use native classList.contains() for performance
+          if ( args[0] === 'contains' ) {
+            return elem.classList.contains( args[1] );
+          } 
+          
+          
+          list  = args.slice(1);
+          
+          this.each(function () {
+            for ( var i = 0, len = list.length; i < len; i++ ) {
+              this.classList[ args[0] ]( list[i] );
+            }
+          });
 
-        //  Should only resolve to this when item() is called;
-        return jQuery(elem).classlist()[ +args[1] ];
+        } else {
+
+          //  Should only resolve to this when item() is called;
+          return hasClassList ? 
+                 elem.classList.item(+args[1]) : 
+                 jQuery(elem).classlist()[ +args[1] ];
+        }                 
       }
       
       return jQuery(elem).classlist();

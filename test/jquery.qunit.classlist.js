@@ -72,7 +72,7 @@ test("jQuery.fn.classlist", function () {
   equal($div.classlist('contains','bananas'), true, "$div.classlist('add', 'bananas'), $div.classlist('contains','bananas')");
 
   $div.classlist('remove', 'foo');
-  equal($div.classlist('contains', 'foo'), false, "$div.classlist('remove(\"foo\'), !$div.classlist('contains(\"foo\')");
+  equal($div.classlist('contains', 'foo'), false, "$div.classlist('remove', 'foo'), !$div.classlist('contains', 'foo')");
 
   equal($div.classlist('contains', 'baz'), $div.hasClass("baz"), "$div.classlist('contains', 'baz'), $div.hasClass(\"baz\")");
 
@@ -85,11 +85,11 @@ test("jQuery.fn.classlist", function () {
 
 
 
-  $div.classlist('add(\'pajamas ui font\')');
+  $div.classlist('add("pajamas ui font")');
   equal($div[0].className, 'bar baz quux bananas pajamas ui font', "$div.classlist('add(\'pajamas ui font\')') = $div[0].className, 'bar baz quux bananas pajamas ui font'");
 
-  $div.classlist('remove(\'pajamas ui font\')');
-  equal($div[0].className, 'bar baz quux bananas', "$div.classlist('remove(\'pajamas ui font\')') = $div[0].className, 'bar baz quux bananas'");
+  $div.classlist('remove("pajamas ui font")');
+  equal($div[0].className, 'bar baz quux bananas', "$div.classlist('remove(\"pajamas ui font\")') = $div[0].className, 'bar baz quux bananas'");
 
 
 

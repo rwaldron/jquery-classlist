@@ -1,5 +1,19 @@
+2010-11-03 - v0.2.0
+
+  - Uses native classList whenever possible to maximize performance
+  
+  Passes all 59 Unit Tests in:
+  
+  Firefox 3.0+, 3.5+, 3.6+, 4b
+  Chrome 4+
+  Safari 4+
+  Opera 10.60 
+  IE 6, 7, 8
+  
+
+
 2010-11-02 - v0.1.2
   
-  -  Updated plugin format to match "Official jQuery Plugin" format 
+  - Updated plugin format to match "Official jQuery Plugin" format 
 
 2010-11-02 - v0.1.1 - Initial dev release 
