@@ -1,65 +1,76 @@
-;(function (jQuery) {
+/*!
+ * jQuery ClassList Plugin v0.1.2
+ * http://github.com/rwldrn/jquery-classlist
+ *
+ * Copyright (c) 2010 Rick Waldron
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ */
+(function (jQuery, undefined) {
   
-  jQuery.fn.classlist = function () {
+  jQuery.fn.extend({
+    
+    // Provide a browser compatible implementation of the classList api
+    classlist: function () {
       
-    var arg, args, ret, apiFn, list, 
-        temp = [], 
-        elem = this[0], 
-        hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
-        fixMethods = {
-          "contains" : "has"
-        },
-        noids = {
-          "null": true, 
-          "undefined": true,
-          "false": true
-        };
+      var arg, args, ret, apiFn, list, 
+          temp = [], 
+          elem = this[0], 
+          hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
+          fixMethods = {
+            "contains" : "has"
+          },
+          noids = {
+            "null": true, 
+            "undefined": true,
+            "false": true
+          };
 
-    //  Getter logic
-    if ( !arguments.length ) {
+      //  Getter logic
+      if ( !arguments.length ) {
 
-      ret  = ( hasClassList && elem.classList ) ||
-                ( elem.className && elem.className.split(" ") );
+        ret  = ( hasClassList && elem.classList ) ||
+                  ( elem.className && elem.className.split(" ") );
 
-      // Native classList is an array-like object; for normalization 
-      // with non-native implementations, we return arrays 
-      if ( ret.length ) {
+        // Native classList is an array-like object; for normalization 
+        // with non-native implementations, we return arrays 
+        if ( ret.length ) {
 
-        if ( jQuery.isArray(ret) ) {
-          return ret;
+          if ( jQuery.isArray(ret) ) {
+            return ret;
+          }
+
+          // Forge an array from native classList 
+          for ( var i = 0, len = ret.length; i < len; i++ ) {
+            if ( ret[i] ) {
+              temp[i] = ret[i];
+            }            
+          }
+
+          return temp;
         }
-
-        // Forge an array from native classList 
-        for ( var i = 0, len = ret.length; i < len; i++ ) {
-          if ( ret[i] ) {
-            temp[i] = ret[i];
-          }            
-        }
-
-        return temp;
       }
-    }
 
-    arguments.length && (  arg  = Array.prototype.join.call(arguments) );
-    
-    args = arg && arg.match(/(\w+)/gi);
-    
-    if ( args && args.length >= 2 && !noids[ args[1] ] ) {
+      arguments.length && ( arg  = Array.prototype.join.call(arguments) );
       
-      // compile a possible jQuery method
-      apiFn = ( fixMethods[ args[0] ] ? fixMethods[ args[0] ] : args[0] ) + "Class";
+      args = arg && arg.match(/(\w+)/gi);
+      
+      if ( args && args.length >= 2 && !noids[ args[1] ] ) {
+        
+        // compile a possible jQuery method
+        apiFn = ( fixMethods[ args[0] ] ? fixMethods[ args[0] ] : args[0] ) + "Class";
 
-      // Check if we can shortcut to an existing method
-      if ( jQuery.fn[ apiFn ] ) {
-        // Supports jQuery addClass and removeClass multi 
-        return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
-      } 
+        // Check if we can shortcut to an existing method
+        if ( jQuery.fn[ apiFn ] ) {
+          // Supports jQuery addClass and removeClass multi 
+          return jQuery(elem)[ apiFn ]( args.slice(1).join(" ") );
+        } 
 
-      //  Should only resolve to this when item() is called;
-      return jQuery(elem).classlist()[ +args[1] ];
+        //  Should only resolve to this when item() is called;
+        return jQuery(elem).classlist()[ +args[1] ];
+      }
+      
+      return jQuery(elem).classlist();
     }
-    
-    return jQuery(elem).classlist();
-  };
-
+  });
+  
 })(jQuery);
