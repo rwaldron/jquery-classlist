@@ -22,6 +22,8 @@ test("jQuery.fn.classlist", function () {
   
   var $div  = $('#potters-field');
   
+  $div.classlist();
+  
   same(origclasses, $div.classlist(), "Calling $div.classlist()" );
 
   for ( var i = 0, len = usecases.length; i < len; i++ ) {

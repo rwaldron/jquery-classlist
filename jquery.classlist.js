@@ -1,5 +1,5 @@
 /*!
- * jQuery ClassList Plugin v0.2.0
+ * jQuery ClassList Plugin v0.2.1
  * http://github.com/rwldrn/jquery-classlist
  *
  * Copyright (c) 2010 Rick Waldron
@@ -35,18 +35,11 @@
         // with non-native implementations, we return arrays 
         if ( ret.length ) {
 
-          if ( jQuery.isArray(ret) ) {
-            return ret;
+          if ( !jQuery.isArray(ret) ) {
+            return jQuery.makeArray(ret);
           }
-
-          // Forge an array from native classList 
-          for ( var i = 0, len = ret.length; i < len; i++ ) {
-            if ( ret[i] ) {
-              temp[i] = ret[i];
-            }            
-          }
-
-          return temp;
+          
+          return ret;
         }
       }
 
