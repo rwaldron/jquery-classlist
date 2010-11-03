@@ -201,7 +201,3 @@ $('#mydiv').classlist('toggle', 'quux');
 > [ "quux", "bananas", "pajamamas" ]
 
 </pre>
-
-
-Some copy lifted from:
-http://api.jquery.com/hasClass/
