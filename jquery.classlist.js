@@ -28,11 +28,12 @@
       //  Getter logic
       if ( !arguments.length ) {
 
-        ret  = ( hasClassList && elem.classList ) ||
-                  ( elem.className && elem.className.split(" ") );
+        return ( ( hasClassList && jQuery.makeArray(elem.classList) ) ||
+                   ( elem.className && elem.className.split(" ") ) );
 
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
+        /*
         if ( ret.length ) {
 
           if ( !jQuery.isArray(ret) ) {
@@ -41,6 +42,7 @@
           
           return ret;
         }
+        */
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
