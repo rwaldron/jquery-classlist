@@ -31,7 +31,6 @@
         // with non-native implementations, we return arrays 
         return ( ( hasClassList && jQuery.makeArray(elem.classList) ) ||
                    ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
-
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
