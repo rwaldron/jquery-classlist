@@ -54,7 +54,7 @@ $('#mydiv').classlist('item(3)')
 > "quux"
 
 </pre>    
-<pre><h2>.classlist('contains("classString")')</h2>Check if a class exists on an element
+<pre><h2>.classlist('contains("classString(s)")')</h2>Check if a class exists on an element
 
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux"&gt;&lt;/div&gt;
@@ -64,7 +64,7 @@ $('#mydiv').classlist('contains("baz")')
 > true
 
 </pre>
-<pre><h2>.classlist('add("classString")')</h2>Add a class or classes to the classlist:
+<pre><h2>.classlist('add("classString(s)")')</h2>Add a class or classes to the classlist:
 
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux"&gt;&lt;/div&gt;
@@ -80,7 +80,7 @@ $('#mydiv').classlist('add("bananas pajamamas")');
 > [ "foo", "bar", "baz", "quux", "bananas", "pajamamas" ]
 
 </pre>
-<pre><h2>.classlist('remove("classString")')</h2> Remove a class or classes from the classlist:
+<pre><h2>.classlist('remove("classString(s)")')</h2> Remove a class or classes from the classlist:
 
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux bananas pajamas"&gt;&lt;/div&gt;
@@ -96,7 +96,7 @@ $('#mydiv').classlist('remove("foo bar baz")');
 > [ "quux", "bananas", "pajamamas" ]
 
 </pre>
-<pre><h2>.classlist('toggle("classString")')</h2>Toggle a class on or off:
+<pre><h2>.classlist('toggle("classString(s)")')</h2>Toggle a class on or off:
 
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="quux bananas pajamas"&gt;&lt;/div&gt;
@@ -138,7 +138,7 @@ $('#mydiv').classlist('item', 1)
 
 
 </pre>
-<pre><h2>.classlist('contains', 'classString')</h2>Check if a class exists on an element
+<pre><h2>.classlist('contains', 'classString(s)')</h2>Check if a class exists on an element
     
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux"&gt;&lt;/div&gt;
@@ -149,7 +149,7 @@ $('#mydiv').classlist('contains', 'baz')
 > true
 
 </pre>
-<pre><h2>.classlist('add', 'classString')</h2>Add a class or classes to the classlist:
+<pre><h2>.classlist('add', 'classString(s)')</h2>Add a class or classes to the classlist:
     
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux"&gt;&lt;/div&gt;
@@ -165,7 +165,7 @@ $('#mydiv').classlist('add', 'bananas pajamamas');
 > [ "foo", "bar", "baz", "quux", "bananas", "pajamamas" ]
 
 </pre>
-<pre><h2>.classlist('remove', 'classString')</h2>Remove a class or classes from the classlist:
+<pre><h2>.classlist('remove', 'classString(s)')</h2>Remove a class or classes from the classlist:
     
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="foo bar baz quux bananas pajamamas"&gt;&lt;/div&gt;
@@ -181,7 +181,7 @@ $('#mydiv').classlist('remove', 'foo bar baz');
 > [ "quux", "bananas", "pajamamas" ]
 
 </pre>
-<pre><h2>.classlist('toggle', 'classString')</h2>Toggle a class on or off:
+<pre><h2>.classlist('toggle', 'classString(s)')</h2>Toggle a class on or off:
     
     &lt;-- Assume the following markup --&gt;
     &lt;div id="mydiv" class="quux bananas pajamamas"&gt;&lt;/div&gt;
