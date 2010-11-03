@@ -29,7 +29,7 @@
       if ( !arguments.length ) {
 
         return ( ( hasClassList && jQuery.makeArray(elem.classList) ) ||
-                   ( elem.className && elem.className.split(" ") ) );
+                   jQuery(elem).attr('class').split(" ") );
 
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
