@@ -13,7 +13,6 @@
     //  TODO: switch to named arguments? test performance first
     classlist: function () {
       
-      
       var arg, args, apiFn, list, classStr, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
