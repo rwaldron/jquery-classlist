@@ -15,6 +15,7 @@
       var arg, args, apiFn, list, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
+          slice = slice || Array.prototype.slice,
           fixMethods = {
             "contains" : "has"
           },
@@ -28,7 +29,8 @@
       if ( !arguments.length ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
-        return ( ( hasClassList && jQuery.makeArray(elem.classList) ) ||
+        //jQuery.makeArray(elem.classList)
+        return ( ( hasClassList && slice.call(elem.classList, 0, elem.classList.length) ) ||
                    ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
       }
 
