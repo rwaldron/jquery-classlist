@@ -12,8 +12,7 @@
     // Provide a browser compatible implementation of the classList api
     classlist: function () {
       
-      var arg, args, ret, apiFn, list, 
-          temp = [], 
+      var arg, args, apiFn, list, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
           fixMethods = {
