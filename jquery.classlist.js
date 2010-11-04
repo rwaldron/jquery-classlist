@@ -34,8 +34,9 @@
           list = elem.classList;
         }
         
-        return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
-                   ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
+          return slice.call(list, 0, list.length - 1);
+//        return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
+//                   ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
