@@ -14,7 +14,7 @@
     classlist: function () {
       
       
-      var arg, args, apiFn, list,
+      var arg, args, apiFn, list, classStr, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
@@ -31,10 +31,12 @@
       if ( !arguments.length ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
-        //if ( hasClassList ) {
-        //  return elem.classList.toString().split(" ");
-        //}
-        return (  ( elem.classList.toString() ) || ( elem.className || "" ) ).split(" ");
+        
+        classStr = hasClassList ? 
+                    elem.classList.toString().split(" ") :
+                    elem.className;
+        
+        return ( classStr || "" ).split(" ");
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
