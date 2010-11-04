@@ -32,9 +32,12 @@
         // with non-native implementations, we return arrays 
         //jQuery.makeArray(elem.classList)
         if ( hasClassList ) {
-          list  = elem.classList;
+          //list  = elem.classList;
+          //return ( list.length ? slice.call(list, 0, list.length - 1) : [] );
+
+          //list  = elem.classList.toString().split(" ");
+          return elem.classList.toString().split(" ");
           
-          return ( list.length ? slice.call(list, 0, list.length - 1) : [] );
         }
         
         
