@@ -12,7 +12,7 @@
     // Provide a browser compatible implementation of the classList api
     classlist: function () {
       
-      var arg, args, apiFn, list, 
+      var arg, args, apiFn, list,
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
           slice = slice || Array.prototype.slice,
@@ -30,7 +30,11 @@
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
         //jQuery.makeArray(elem.classList)
-        return ( ( hasClassList && slice.call(elem.classList, 0, elem.classList.length) ) ||
+        if ( hasClassList ) {
+          list = elem.classList;
+        }
+        
+        return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
                    ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
       }
 
