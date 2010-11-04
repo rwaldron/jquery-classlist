@@ -15,7 +15,7 @@
       
       var arg, args, apiFn, list,
           elem = this[0], 
-          hasClassList = jQuery.support.classList || !!document.createElement("div").classList, 
+          hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
           fixMethods = {
             "contains" : "has"
@@ -35,7 +35,9 @@
           list = elem.classList;
         }
         
-          return slice.call(list, 0, list.length - 1);
+        
+        return slice.call(elem.classList, 0, elem.classList.length - 1);
+          //return slice.call(list, 0, list.length - 1);
 //        return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
 //                   ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
       }
