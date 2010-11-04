@@ -10,6 +10,7 @@
   jQuery.fn.extend({
     
     // Provide a browser compatible implementation of the classList api
+    //  TODO: switch to named arguments? test performance first
     classlist: function () {
       
       var arg, args, apiFn, list,
