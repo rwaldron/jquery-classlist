@@ -32,14 +32,16 @@
         // with non-native implementations, we return arrays 
         //jQuery.makeArray(elem.classList)
         if ( hasClassList ) {
-          list = elem.classList;
+          return slice.call(elem.classList, 0, elem.classList.length - 1);
         }
         
         
-        return slice.call(elem.classList, 0, elem.classList.length - 1);
+        return ( jQuery(elem).attr("class") || "" ).split(" ");
+        
+        //return slice.call(elem.classList, 0, elem.classList.length - 1);
           //return slice.call(list, 0, list.length - 1);
-//        return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
-//                   ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
+        //  return ( ( hasClassList && slice.call(list, 0, list.length - 1) ) ||
+        //          ( ( jQuery(elem).attr("class") || "" ).split(" ") ) );
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
