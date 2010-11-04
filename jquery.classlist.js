@@ -48,7 +48,7 @@
             // Uses jQuery addClass, removeClass and toggleClass in single and multi mode 
             // as fallback to native classList methods
             // Returns as documented for these methods
-            return jQuery(this)[ apiFn ]( args.slice(1).join(" ") )
+            return jQuery(this)[ apiFn ]( args.slice(1).join(" ") );
           }
           
           //  Use native classList.contains() for performance
