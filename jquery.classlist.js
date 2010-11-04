@@ -33,7 +33,7 @@
         // with non-native implementations, we return arrays 
         
         classStr = hasClassList ? 
-                    elem.classList.toString().split(" ") :
+                    elem.classList.toString() :
                     elem.className;
         
         return ( classStr || "" ).split(" ");
