@@ -30,7 +30,6 @@
       if ( !arguments.length ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
-        
         classStr = hasClassList ? 
                     elem.classList.toString() :
                     elem.className;
