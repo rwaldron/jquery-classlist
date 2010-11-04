@@ -1,10 +1,15 @@
 # jQuery.classlist()
 
-### Provides a cross-browser implementation of the HTML5 classList API. For more information:
+## Provides a cross-browser implementation of the HTML5 classList API. For more information:
 
 https://developer.mozilla.org/en/DOM/element.classList
 http://hacks.mozilla.org/2010/01/classlist-in-firefox-3-6/
 http://davidwalsh.name/classlist
+
+
+## Performance Evidence
+
+http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2
 
 
 ## API
