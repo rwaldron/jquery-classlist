@@ -38,6 +38,9 @@
     $('#mydiv').classlist()
     
     > [ "foo", "bar", "baz", "quux" ]
+    
+    // Did I mention? It's REALLY fast?
+    // [http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2](http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2)
 
 </pre>    
 
