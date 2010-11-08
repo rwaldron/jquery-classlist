@@ -32,11 +32,14 @@
     
 
 ### The `.classlist()` method will return an array of classes on first element of the matched elements:
+
+<pre><h2>.classlist() </h2>Get an array of all classes on an element
     
     $('#mydiv').classlist()
     
     > [ "foo", "bar", "baz", "quux" ]
-    
+
+</pre>    
 
 ### The `.classlist([function call string with arguments])` signature is used to call methods of the Element.classList api.
 
