@@ -40,17 +40,17 @@
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
         
-        //classNames = value.join(" ");
+        classNames = value.join(" ");
         
         //for ( var i = 0, l = this.length; i < l; i++ ) {
         //  this[i].className = jQuery.trim( classNames );
         //}
         
-        return this.addClass(classNames);
+        this.addClass(classNames);
         
         
 
-        //return this;
+        return this;
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
