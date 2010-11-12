@@ -7,19 +7,16 @@
  */
 (function (jQuery, undefined) {
   
-  var  toString = Object.prototype.toString;
-  
   jQuery.fn.extend({
     
     // Provide a browser compatible implementation of the classList api
     //  TODO: switch to named arguments? test performance first
-    classlist: function ( value ) {
+    classlist: function () {
       
       var arg, args, apiFn, list, classNames, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
-          rspaces = /\s+/, 
           fixMethods = {
             "contains" : "has"
           },
@@ -30,44 +27,17 @@
           };
           
       //  Getter logic
-      if ( !value ) {
+      if ( !arguments.length ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
         classNames = hasClassList ? 
-                    elem.classList.toString() :
-                    elem.className;
-                
-        return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split( rspaces );
-      }
-      
-      //  Support a simpler setter
-      if ( jQuery.type(value) === "array" ) {
+                      elem.classList.toString() :
+                      elem.className;
         
-        classNames  = value.join(" ");
-        
-        
-        for ( var i = 0, l = this.length; i < l; i++ ) {
-          elem = this[i];
-          
-          for ( var c = 0, cl = value.length; c < cl; c++ ) {
-            if ( !!value[c] ) {
-              if ( hasClassList ) {
-                elem.classList.add(value[c]);
-              } else {
-                
-                elem.className = jQuery.trim( " " + elem.className + " " + classNames );
-              }
-            }
-          }
-
-        }
-        
-
-        return this;
+        return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split( " " );
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
-      
       
       args = arg && arg.match(/(\w+)/gi);
       
@@ -94,7 +64,7 @@
           //  Use native classlist.add,remove,toggle for performance
           list  = args.slice(1);
           
-          return this.each(function () {
+          this.each(function () {
             for ( var i = 0, len = list.length; i < len; i++ ) {
               this.classList[ args[0] ]( list[i] );
             }
