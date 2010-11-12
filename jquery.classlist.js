@@ -38,12 +38,12 @@
       }
       
       //  Support a simpler setter
-      if ( arguments.length === 1 && "join" in arguments[0] ) {
+      if ( arguments.length && jQuery.type(arguments[0]) === "array" ) {
       
         classStr  = arguments[0].join(" ");
         
         // Apply an array of classes to each element in matched set
-        return $(this).addClass(classStr);
+        return this.addClass(classStr);
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
