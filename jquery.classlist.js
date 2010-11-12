@@ -8,12 +8,10 @@
 (function (jQuery, undefined) {
   
   var  toString = Object.prototype.toString;
+  // Provide a browser compatible implementation of the classList api
+  //  TODO: switch to named arguments? test performance first
   
-  jQuery.fn.extend({
-    
-    // Provide a browser compatible implementation of the classList api
-    //  TODO: switch to named arguments? test performance first
-    classlist: function ( value ) {
+  jQuery.fn.classlist = function ( value ) {
       
       var arg, args, apiFn, list, classNames, 
           elem = this[0], 
@@ -104,6 +102,6 @@
       }
       
       return jQuery(elem).classlist();
-    }
-  });
+    };
+
 })(jQuery);
