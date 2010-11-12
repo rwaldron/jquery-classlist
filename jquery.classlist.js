@@ -8,15 +8,18 @@
 (function (jQuery, undefined) {
   
   var  toString = Object.prototype.toString;
-  // Provide a browser compatible implementation of the classList api
-  //  TODO: switch to named arguments? test performance first
   
-  jQuery.fn.classlist = function ( value ) {
+  jQuery.fn.extend({
+    
+    // Provide a browser compatible implementation of the classList api
+    //  TODO: switch to named arguments? test performance first
+    classlist: function ( value ) {
       
       var arg, args, apiFn, list, classNames, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
+          rspaces = /\s+/, 
           fixMethods = {
             "contains" : "has"
           },
@@ -34,23 +37,30 @@
                     elem.classList.toString() :
                     elem.className;
                 
-        return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split(" ");
+        return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split( rspaces );
       }
       
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
         
-        //classNames = value.join(" ");
-        classNames = value.toString().replace(/,/g, ' ');
+        classNames  = value.join(" ");
         
-        //console.log(value);
         
-        //for ( var i = 0, l = this.length; i < l; i++ ) {
-        //  this[i].className = jQuery.trim( classNames );
-        //}
-        
-        this.addClass(classNames);
-        
+        for ( var i = 0, l = this.length; i < l; i++ ) {
+          elem = this[i];
+          
+          for ( var c = 0, cl = value.length; c < cl; c++ ) {
+            if ( !!value[c] ) {
+              if ( hasClassList ) {
+                elem.classList.add(value[c]);
+              } else {
+                
+                elem.className = jQuery.trim( " " + elem.className + " " + classNames );
+              }
+            }
+          }
+
+        }
         
 
         return this;
@@ -102,6 +112,6 @@
       }
       
       return jQuery(elem).classlist();
-    };
-
+    }
+  });
 })(jQuery);
