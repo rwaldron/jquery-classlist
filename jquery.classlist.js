@@ -39,7 +39,7 @@
       
       if ( jQuery.type(value) === "array" ) {
         
-        classNames = value.toString();
+        classNames = value.toString().replace(/,/g, " ");
         
         return this;
       
