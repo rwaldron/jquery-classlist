@@ -38,7 +38,7 @@
       }
       
       //  Support a simpler setter
-      if ( arguments.length === 1 && jQuery.type(arguments[0]) === "array" ) {
+      if ( arguments.length === 1 && "join" in arguments[0] ) {
       
         classStr  = arguments[0].join(" ");
         
