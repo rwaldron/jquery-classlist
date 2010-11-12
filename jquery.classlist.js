@@ -7,6 +7,8 @@
  */
 (function (jQuery, undefined) {
   
+  var  toString = Object.prototype.toString;
+  
   jQuery.fn.extend({
     
     // Provide a browser compatible implementation of the classList api
@@ -40,7 +42,8 @@
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
         
-        classNames = value.toString().replace(',', ' ');
+        //classNames = value.join(" ");
+        classNames = value.toString().replace(/,/g, ' ');
         
         //console.log(value);
         

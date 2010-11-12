@@ -49,8 +49,8 @@ test("jQuery.fn.classlist", function () {
   same($div.classlist(["foo", "bar", "baz", "quux"]).classlist(), origclasses, "$div.classlist([\"foo\", \"bar\", \"baz\", \"quux\"]).classlist() returns");
 
 
-  //same( $movein.classlist(["baz", "quux"]).classlist(), origclasses, "added classes to existing classes" )
-  same( $movein.classlist(["baz", "quux"]).classlist(), ["baz", "quux"], "set new class attribute" );
+  same( $movein.classlist(["baz", "quux"]).classlist(), origclasses, "added classes to existing classes" )
+  //same( $movein.classlist(["baz", "quux"]).classlist(), ["baz", "quux"], "set new class attribute" );
   
   
   
