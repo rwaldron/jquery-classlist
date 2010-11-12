@@ -36,6 +36,15 @@
         
         return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split( " " );
       }
+      
+      if ( jQuery.type(value) === "array" ) {
+        
+        
+        return this;
+      
+      }
+      
+      
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
       
