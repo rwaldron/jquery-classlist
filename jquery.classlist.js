@@ -56,22 +56,23 @@
         }
         */
         classNames  = value.join(" ");
-        
+
+        if ( !jQuery.trim(classNames) ) {
+          return this;
+        }        
         
         for ( var i = 0, l = this.length; i < l; i++ ) {
           elem = this[i];
           
-          for ( var c = 0, cl = value.length; c < cl; c++ ) {
-            if ( !!value[c] ) {
-              if ( hasClassList ) {
-                elem.classList.add(value[c]);
-              } else {
-                
-                elem.className = jQuery.trim( " " + elem.className + " " + classNames );
-              }
+          if ( hasClassList ) {
+            for ( var c = 0, cl = value.length; c < cl; c++ ) {
+              elem.classList.add(value[c]);
             }
+          } else {
+            
+            elem.className = jQuery.trim( elem.className + " " + classNames );
+          
           }
-
         }
         
         //value
