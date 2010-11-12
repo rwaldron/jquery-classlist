@@ -41,8 +41,9 @@
         
         classNames = value.toString().replace(/,/g, " ");
         
-        for ( var i = 0, l = classNames.length; i < l ; i++ ) {}
-        
+        for ( var elem = this, i = 0, l = this.length; 
+              i < l ; elem[i++].className = classNames ) {}
+
         return this;
       
       }
