@@ -13,7 +13,7 @@
     //  TODO: switch to named arguments? test performance first
     classlist: function ( value ) {
       
-      var arg, args, apiFn, list, classNames, 
+      var arg, args, apiFn, list, classNames, className, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
@@ -41,15 +41,41 @@
       if ( jQuery.type(value) === "array" ) {
         
         //classNames = value.toString().replace(/,/g, " ");
-        classNames = value.join(" ");
+        //classNames = value.join(" ");
+        classNames  = value;
         
-        for ( var i = 0, l = this.length; 
-              i < l ; this[i++].className = classNames ) {
-                
-              }
+       // for ( var i = 0, l = this.length; 
+       //       i < l ; this[i++].className = classNames ) {
+       //
+       //       }
 
-        return this;
       
+
+        for ( var i = 0, l = this.length; i < l; i++ ) {
+          elem = this[i];
+
+          if ( elem.nodeType === 1 ) {
+            if ( !elem.className ) {
+              elem.className = value.join(" ");
+
+            } else {
+              className = " " + elem.className + " ",
+                setClass = elem.className;
+
+              for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
+                if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
+                  setClass += " " + classNames[c];
+                }
+              }
+              elem.className = jQuery.trim( setClass );
+            }
+          }
+        }
+
+        
+        
+        
+        return this;
       }
       
       
