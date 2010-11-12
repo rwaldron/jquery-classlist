@@ -1,5 +1,5 @@
 /*!
- * jQuery ClassList Plugin v0.3.0
+ * jQuery ClassList Plugin v0.4.0
  * http://github.com/rwldrn/jquery-classlist
  *
  * Copyright (c) 2010 Rick Waldron
