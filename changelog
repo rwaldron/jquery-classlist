@@ -1,3 +1,8 @@
+2010-11-12 - v0.4.0
+
+  - Added array argument setter
+  - Huge perf win
+
 2010-11-04 - v0.3.0
 
   - Huge performance changes, for both native and fallback scenarios

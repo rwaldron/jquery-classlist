@@ -12,13 +12,15 @@
 
 
 * [http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2](http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2)
-
+* [http://jsperf.com/fn-classlist-vs-fn-addclass-join](http://jsperf.com/fn-classlist-vs-fn-addclass-join)
 
 ## API
 
 > .classlist() 
 > ------------------------------------------------------------------------------
 > * .classlist( )
+> * .classlist( ["set", "this", "array", "of", "classes"] )
+> * ---------- Other signatures
 > * .classlist( [function call string with arguments] )
 > * .classlist( [function string], [arguments] )
 
