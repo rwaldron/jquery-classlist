@@ -39,7 +39,7 @@
       
       if ( jQuery.type(value) === "array" ) {
         
-        classNames = value.join( " " );
+        classNames = value.toString();
         
         return this;
       
