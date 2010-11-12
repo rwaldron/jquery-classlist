@@ -44,6 +44,23 @@
 
 </pre>    
 
+
+### The `.classlist( [ "foo", "bar", "baz" ] )` method will take an array of class strings and apply them to all the elements in the matched set:
+
+<pre><h2>.classlist(  [ "foo", "bar", "baz" ] ) </h2>Set classes on elements with an array of strings, returns the matched set
+    
+    $('#mydiv').classlist([ "foo", "bar", "baz", "quux" ])
+    
+    > [ div#mydiv ]
+    
+    //  This is also really, really fast.
+    // [http://jsperf.com/fn-classlist-vs-fn-addclass-join](http://jsperf.com/fn-classlist-vs-fn-addclass-join)
+
+</pre>   
+
+
+
+
 ### The `.classlist([function call string with arguments])` signature is used to call methods of the Element.classList api.
 
 

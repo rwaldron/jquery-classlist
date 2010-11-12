@@ -6,6 +6,10 @@
  * Dual licensed under the MIT or GPL Version 2 licenses.
  */
 (function (jQuery, undefined) {
+
+  var slice = slice || Array.prototype.slice, 
+      hasClassList = jQuery.support.classList || !!$('<div/>')[0].classList;
+  
   
   jQuery.fn.extend({
     
@@ -13,18 +17,8 @@
     //  TODO: switch to named arguments? test performance first
     classlist: function ( value ) {
       
-      var arg, args, apiFn, list, classNames, className, listLength, iter = 0, 
-          elem = this[0], 
-          hasClassList = jQuery.support.classList || !!elem.classList, 
-          slice = slice || Array.prototype.slice,
-          fixMethods = {
-            "contains" : "has"
-          },
-          noids = {
-            "null": true, 
-            "undefined": true,
-            "false": true
-          };
+      var elem = this[0], iter = 0, 
+          classNames, className, listLength;
           
       //  Getter logic
       if ( !value ) {
@@ -40,79 +34,43 @@
       
       if ( jQuery.type(value) === "array" ) {
         
-
-        classNames  = value;
         listLength  = this.length;
         
-        
         while ( listLength-- ) {
-          
           elem = this[iter++];
-          
           
           if ( elem.nodeType === 1 ) {
             if ( !elem.className ) {
               
-              elem.className = classNames.join(" ");
+              elem.className = value.join(" ");
 
             } else {
-            
-              //_classNames = hasClassList ?
-              //                elem.classList.toString()
-                              
-                  //elem.className.split()classNames.concat(elem.className)
-            
             
               className = " " + elem.className + " ",
                 setClass = elem.className;
 
-              for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
-                if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-                  
-                  elem.className += " " + classNames[c];
+              for ( var c = 0, cl = value.length; c < cl; c++ ) {
+                if ( className.indexOf( " " + value[c] + " " ) < 0 ) {
+                  elem.className += " " + value[c];
                 }
               }
             }
           }          
         } 
-        
-        /*
 
-        for ( var i = 0, l = this.length; i < l; i++ ) {
-          elem = this[i];
-          
-          if ( elem.nodeType === 1 ) {
-            if ( !elem.className ) {
-              
-              elem.className = classNames.join(" ");
-
-            } else {
-            
-              _classNames = hasClassList ?
-                              elem.classList.toString()
-                              
-                  elem.className.split()classNames.concat(elem.className)
-            
-            
-              className = " " + elem.className + " ",
-                setClass = elem.className;
-
-              for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
-                if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-                  
-                  elem.className += " " + classNames[c];
-                }
-              }
-            }
-          }
-        }
-        */
-        
-        
-        
         return this;
       }
       
+      // Everything below this comment is superfluous
+      var arg, args, apiFn, list, 
+          fixMethods = {
+            "contains" : "has"
+          },
+          noids = {
+            "null": true, 
+            "undefined": true,
+            "false": true
+          };
       
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
