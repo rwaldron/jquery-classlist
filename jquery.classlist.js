@@ -33,7 +33,7 @@
         classStr = hasClassList ? 
                     elem.classList.toString() :
                     elem.className;
-                    
+                
         return !jQuery.trim(classStr) ? [] : ( classStr || "" ).split(" ");
       }
       
@@ -44,7 +44,7 @@
         
         // Apply an array of classes to each element in matched set
         return !jQuery.trim(classStr) ? this : this.each(function () {
-                                                this.className +=  $(this).classlist().join(" ") + classStr;
+                                                this.className +=  ( this.className && " " ) + classStr;
                                               });
       }
 

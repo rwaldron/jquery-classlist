@@ -22,7 +22,9 @@ var emptyclass  = [],
 test("jQuery.fn.classlist", function () {
   
   var $div  = $('#potters-field'), 
-      $none = $('#no-class');
+      $movein = $('#move-in'), 
+      $none = $('#no-class'), 
+      $missing = $('#missing-attr');
   
   $div.classlist();
   $none.classlist();
@@ -47,7 +49,12 @@ test("jQuery.fn.classlist", function () {
   same($div.classlist(["foo", "bar", "baz", "quux"]).classlist(), origclasses, "$div.classlist([\"foo\", \"bar\", \"baz\", \"quux\"]).classlist() returns");
 
 
+  same( $movein.classlist(["baz", "quux"]).classlist(), origclasses, "added classes to existing classes" )
   
+  
+  same( $missing.classlist(["foo", "bar", "baz", "quux"]).classlist(), origclasses, "added classes to element with no class attribute" )
+  
+
   
   // functionality tests
   equal($div.classlist('item(0)'), "foo", "");
