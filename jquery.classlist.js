@@ -43,9 +43,11 @@
         classStr  = arguments[0].join(" ");
         
         // Apply an array of classes to each element in matched set
-        return !jQuery.trim(classStr) ? this : this.each(function () {
-                                                this.className +=  ( this.className && " " ) + classStr;
-                                              });
+        return this.each(function () {
+        
+          $(this).addClass(classStr);
+
+        });
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
