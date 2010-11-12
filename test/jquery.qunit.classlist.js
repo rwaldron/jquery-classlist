@@ -34,6 +34,21 @@ test("jQuery.fn.classlist", function () {
     //console.log( "$div.classlist('"+usecases[i]+"')", $div.classlist( usecases[i] ) );
   }  
 
+  $div[0].className = "";
+  same($div.classlist([null, null]), $div, "");
+  
+  same($div.classlist(), [], "");
+
+  
+  $div[0].className = "";
+  same($div.classlist(["foo", "bar", "baz", "quux"]), $div, "$div.classlist([\"foo\", \"bar\", \"baz\", \"quux\"]) returns same as $div");
+  
+  $div[0].className = "";
+  same($div.classlist(["foo", "bar", "baz", "quux"]).classlist(), origclasses, "$div.classlist([\"foo\", \"bar\", \"baz\", \"quux\"]).classlist() returns");
+
+
+  
+  
   // functionality tests
   equal($div.classlist('item(0)'), "foo", "");
   equal($div.classlist('item(1)'), "bar", "");

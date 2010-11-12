@@ -33,11 +33,23 @@
         classStr = hasClassList ? 
                     elem.classList.toString() :
                     elem.className;
+                    
+        return !jQuery.trim(classStr) ? [] : ( classStr || "" ).split(" ");
+      }
+      
+      //  Support a simpler setter
+      if ( arguments.length === 1 && jQuery.type(arguments[0]) === "array" ) {
+      
+        classStr  = jQuery.makeArray(arguments[0]).join(" ");
         
-        return ( classStr || "" ).split(" ");
+        // Apply an array of classes to each element in matched set
+        return !jQuery.trim(classStr) ? this : this.each(function () {
+                                                this.className = classStr;
+                                              });
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
+      
       
       args = arg && arg.match(/(\w+)/gi);
       
@@ -64,7 +76,7 @@
           //  Use native classlist.add,remove,toggle for performance
           list  = args.slice(1);
           
-          this.each(function () {
+          return this.each(function () {
             for ( var i = 0, len = list.length; i < len; i++ ) {
               this.classList[ args[0] ]( list[i] );
             }
