@@ -43,11 +43,7 @@
         classStr  = arguments[0].join(" ");
         
         // Apply an array of classes to each element in matched set
-        return this.each(function () {
-        
-          $(this).addClass(classStr);
-
-        });
+        return $(this).addClass(classStr);
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
