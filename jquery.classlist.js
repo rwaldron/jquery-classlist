@@ -11,9 +11,9 @@
     
     // Provide a browser compatible implementation of the classList api
     //  TODO: switch to named arguments? test performance first
-    classlist: function () {
+    classlist: function ( value ) {
       
-      var arg, args, apiFn, list, classStr, 
+      var arg, args, apiFn, list, classNames, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
@@ -27,23 +27,36 @@
           };
           
       //  Getter logic
-      if ( !arguments.length ) {
+      if ( !value ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
-        classStr = hasClassList ? 
+        classNames = hasClassList ? 
                     elem.classList.toString() :
                     elem.className;
                 
-        return !jQuery.trim(classStr) ? [] : ( classStr || "" ).split(" ");
+        return !jQuery.trim(classNames) ? [] : ( classNames || "" ).split(" ");
       }
       
       //  Support a simpler setter
-      if ( arguments.length && jQuery.type(arguments[0]) === "array" ) {
+      if ( jQuery.type(value) === "array" ) {
       
-        classStr  = arguments[0].join(" ");
+        classNames  = value.join(" ");
+        
+        if ( !jQuery.trim(classNames) ) {
+          return this;
+        }
         
         // Apply an array of classes to each element in matched set
-        return this.addClass(classStr);
+        for ( var i = 0, l = this.length; i < l; i++ ) {
+          elem = this[i];
+          
+          if ( elem.nodeType === 1 ) {
+            elem.className = jQuery.trim( " " + elem.className + " " + classNames );
+          }
+        }
+
+
+        return this;
       }
 
       arguments.length && ( arg  = Array.prototype.join.call(arguments) );
