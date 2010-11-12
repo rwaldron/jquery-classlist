@@ -53,21 +53,25 @@
 
         for ( var i = 0, l = this.length; i < l; i++ ) {
           elem = this[i];
-
+          
           if ( elem.nodeType === 1 ) {
             if ( !elem.className ) {
+              
               elem.className = value.join(" ");
 
             } else {
+            
               className = " " + elem.className + " ",
                 setClass = elem.className;
 
               for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
                 if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-                  setClass += " " + classNames[c];
+                  //setClass += " " + classNames[c];
+                  
+                  elem.className += " " + classNames[c];
                 }
               }
-              elem.className = jQuery.trim( setClass );
+              //elem.className = jQuery.trim( setClass );
             }
           }
         }
