@@ -40,7 +40,9 @@
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
         
-        classNames = value.join(" ");
+        classNames = value.toString().replace(',', ' ');
+        
+        //console.log(value);
         
         //for ( var i = 0, l = this.length; i < l; i++ ) {
         //  this[i].className = jQuery.trim( classNames );
