@@ -39,7 +39,7 @@
       
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
-      
+        /*
         classNames  = value.join(" ");
         
         if ( !jQuery.trim(classNames) ) {
@@ -54,7 +54,29 @@
             elem.className = jQuery.trim( " " + elem.className + " " + classNames );
           }
         }
+        */
+        classNames  = value.join(" ");
+        
+        
+        for ( var i = 0, l = this.length; i < l; i++ ) {
+          elem = this[i];
+          
+          for ( var c = 0, cl = value.length; c < cl; c++ ) {
+            if ( !!value[c] ) {
+              if ( hasClassList ) {
+                elem.classList.add(value[c]);
+              } else {
+                
+                elem.className = jQuery.trim( " " + elem.className + " " + classNames );
+              }
+            }
+          }
 
+        }
+        
+        //value
+        
+        
 
         return this;
       }
