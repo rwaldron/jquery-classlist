@@ -40,11 +40,11 @@
       //  Support a simpler setter
       if ( arguments.length === 1 && jQuery.type(arguments[0]) === "array" ) {
       
-        classStr  = jQuery.makeArray(arguments[0]).join(" ");
+        classStr  = arguments[0].join(" ");
         
         // Apply an array of classes to each element in matched set
         return !jQuery.trim(classStr) ? this : this.each(function () {
-                                                this.className += ' ' + classStr;
+                                                this.className += " " + classStr;
                                               });
       }
 
