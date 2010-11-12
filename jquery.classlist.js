@@ -44,7 +44,9 @@
         classNames = value.join(" ");
         
         for ( var i = 0, l = this.length; 
-              i < l ; this[i++].className = classNames ) {}
+              i < l ; this[i++].className = classNames ) {
+                this[i++].className = classNames
+              }
 
         return this;
       
