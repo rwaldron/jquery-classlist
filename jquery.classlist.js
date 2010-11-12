@@ -11,7 +11,7 @@
     
     // Provide a browser compatible implementation of the classList api
     //  TODO: switch to named arguments? test performance first
-    classlist: function () {
+    classlist: function ( value ) {
       
       var arg, args, apiFn, list, classNames, 
           elem = this[0], 
@@ -27,7 +27,7 @@
           };
           
       //  Getter logic
-      if ( !arguments.length ) {
+      if ( !value ) {
         // Native classList is an array-like object; for normalization 
         // with non-native implementations, we return arrays 
         classNames = hasClassList ? 
