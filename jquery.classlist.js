@@ -13,7 +13,7 @@
     //  TODO: switch to named arguments? test performance first
     classlist: function ( value ) {
       
-      var arg, args, apiFn, list, classNames, className, 
+      var arg, args, apiFn, list, classNames, className, listLength, iter = 0, 
           elem = this[0], 
           hasClassList = jQuery.support.classList || !!elem.classList, 
           slice = slice || Array.prototype.slice,
@@ -40,16 +40,43 @@
       
       if ( jQuery.type(value) === "array" ) {
         
-        //classNames = value.toString().replace(/,/g, " ");
-        //classNames = value.join(" ");
-        classNames  = value;
-        
-       // for ( var i = 0, l = this.length; 
-       //       i < l ; this[i++].className = classNames ) {
-       //
-       //       }
 
-      
+        classNames  = value;
+        listLength  = this.length;
+        
+        
+        while ( listLength-- ) {
+          
+          elem = this[iter++];
+          
+          
+          if ( elem.nodeType === 1 ) {
+            if ( !elem.className ) {
+              
+              elem.className = classNames.join(" ");
+
+            } else {
+            
+              //_classNames = hasClassList ?
+              //                elem.classList.toString()
+                              
+                  //elem.className.split()classNames.concat(elem.className)
+            
+            
+              className = " " + elem.className + " ",
+                setClass = elem.className;
+
+              for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
+                if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
+                  
+                  elem.className += " " + classNames[c];
+                }
+              }
+            }
+          }          
+        } 
+        
+        /*
 
         for ( var i = 0, l = this.length; i < l; i++ ) {
           elem = this[i];
@@ -57,25 +84,29 @@
           if ( elem.nodeType === 1 ) {
             if ( !elem.className ) {
               
-              elem.className = value.join(" ");
+              elem.className = classNames.join(" ");
 
             } else {
+            
+              _classNames = hasClassList ?
+                              elem.classList.toString()
+                              
+                  elem.className.split()classNames.concat(elem.className)
+            
             
               className = " " + elem.className + " ",
                 setClass = elem.className;
 
               for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
                 if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-                  //setClass += " " + classNames[c];
                   
                   elem.className += " " + classNames[c];
                 }
               }
-              //elem.className = jQuery.trim( setClass );
             }
           }
         }
-
+        */
         
         
         
