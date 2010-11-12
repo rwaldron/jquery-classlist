@@ -39,43 +39,12 @@
       
       //  Support a simpler setter
       if ( jQuery.type(value) === "array" ) {
-        /*
-        classNames  = value.join(" ");
         
-        if ( !jQuery.trim(classNames) ) {
-          return this;
-        }
-        
-        // Apply an array of classes to each element in matched set
-        for ( var i = 0, l = this.length; i < l; i++ ) {
-          elem = this[i];
-          
-          if ( elem.nodeType === 1 ) {
-            elem.className = jQuery.trim( " " + elem.className + " " + classNames );
-          }
-        }
-        */
-        classNames  = value.join(" ");
-
-        if ( !jQuery.trim(classNames) ) {
-          return this;
-        }        
+        classNames = value.join(" ");
         
         for ( var i = 0, l = this.length; i < l; i++ ) {
-          elem = this[i];
-          
-          if ( hasClassList ) {
-            for ( var c = 0, cl = value.length; c < cl; c++ ) {
-              elem.classList.add(value[c]);
-            }
-          } else {
-            
-            elem.className = jQuery.trim( elem.className + " " + classNames );
-          
-          }
+          this[i].className = jQuery.trim( classNames );
         }
-        
-        //value
         
         
 
