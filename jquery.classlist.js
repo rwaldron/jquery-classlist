@@ -44,7 +44,7 @@
         
         // Apply an array of classes to each element in matched set
         return !jQuery.trim(classStr) ? this : this.each(function () {
-                                                this.className = classStr;
+                                                this.className = this.className + ' ' + classStr;
                                               });
       }
 
