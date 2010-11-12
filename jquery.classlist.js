@@ -39,6 +39,7 @@
       
       if ( jQuery.type(value) === "array" ) {
         
+        classNames = value.join( " " );
         
         return this;
       
