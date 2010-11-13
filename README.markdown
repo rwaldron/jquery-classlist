@@ -1,6 +1,6 @@
 # jQuery.classlist()
 
-## Provides a cross-browser implementation of the HTML5 classList API. For more information:
+## Provides an interface for handling class attributes as arrays of className strings:
 
 
 * [https://developer.mozilla.org/en/DOM/element.classList](https://developer.mozilla.org/en/DOM/element.classList)
