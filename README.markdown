@@ -37,11 +37,8 @@
     
     > [ "foo", "bar", "baz", "quux" ]
     
-    // Did I mention? It's REALLY fast?
-    // [http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2](http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2)
 
 </pre>    
-
 
 ### The `.classlist( [ "foo", "bar", "baz" ] )` method will take an array of class strings and apply them to all the elements in the matched set:
 
@@ -51,8 +48,6 @@
     
     > [ div#mydiv ]
     
-    //  This is also really, really fast.
-    // [http://jsperf.com/fn-classlist-vs-fn-addclass-join](http://jsperf.com/fn-classlist-vs-fn-addclass-join)
 
 </pre>   
 
