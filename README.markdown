@@ -1,4 +1,4 @@
-# jQuery.classlist()
+# .classlist()
 
 ## Provides an interface for handling class attributes as arrays of className strings:
 
