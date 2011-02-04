@@ -14,6 +14,15 @@
 * [http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2](http://jsperf.com/fn-classlist-vs-fn-attr-class-split/2)
 * [http://jsperf.com/fn-classlist-vs-fn-addclass-join](http://jsperf.com/fn-classlist-vs-fn-addclass-join)
 
+
+## Array of Classes Survey
+
+
+* [https://spreadsheets.google.com/viewform?formkey=dHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc6MA#gid=0](Survey)
+* [https://spreadsheets.google.com/pub?key=0Ap5RnGLtwI1RdHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc&output=html](Results)	
+
+
+
 ## API
 
 > .classlist() 
