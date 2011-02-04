@@ -18,8 +18,8 @@
 ## Array of Classes Survey
 
 
-* [https://spreadsheets.google.com/viewform?formkey=dHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc6MA#gid=0](Survey)
-* [https://spreadsheets.google.com/pub?key=0Ap5RnGLtwI1RdHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc&output=html](Results)	
+* [Survey](https://spreadsheets.google.com/viewform?formkey=dHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc6MA#gid=0)
+* [Results](https://spreadsheets.google.com/pub?key=0Ap5RnGLtwI1RdHpBUmx2ZkxoWWZwS3pkemRIMFNfQmc&output=html)	
 
 
 
