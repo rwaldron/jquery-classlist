@@ -15,54 +15,54 @@
 	// Provide a browser compatible implementation of the classList api
 	jQuery.fn.classlist = function( value ) {
 
-			var elem = this[0],
-				iter = 0,
-				classNames, className, len;
+		var elem = this[0],
+			iter = 0,
+			classNames, className, len;
 
-			// Getter logic
-			if ( !value ) {
-				// Native classList is an array-like object; for normalization
-				// with non-native implementations, we return arrays
-				// This approach has proven significantly faster
-				classNames = jQuery.support.classList ?
-					elem.classList.toString() :
-					elem.className;
+		// Getter logic
+		if ( !value ) {
+			// Native classList is an array-like object; for normalization
+			// with non-native implementations, we return arrays
+			// This approach has proven significantly faster
+			classNames = jQuery.support.classList ?
+				elem.classList.toString() :
+				elem.className;
 
-				return !jQuery.trim( classNames ) ? [] : ( classNames || "" ).split( " " );
-			}
+			return !jQuery.trim( classNames ) ? [] : ( classNames || "" ).split( " " );
+		}
 
-			if ( jQuery.type(value) === "array" ) {
+		if ( jQuery.type(value) === "array" ) {
 
-				len	= this.length;
+			len	= this.length;
 
-				while ( len-- ) {
-					elem = this[ iter++ ];
+			while ( len-- ) {
+				elem = this[ iter++ ];
 
-					if ( elem.nodeType === 1 ) {
-						if ( !elem.className ) {
+				if ( elem.nodeType === 1 ) {
+					if ( !elem.className ) {
 
-							elem.className = value.join(" ");
+						elem.className = value.join(" ");
 
-						} else {
+					} else {
 
-							className = " " + elem.className + " ";
-							setClass = elem.className;
+						className = " " + elem.className + " ";
+						setClass = elem.className;
 
-							for ( var c = 0, cl = value.length; c < cl; c++ ) {
+						for ( var c = 0, cl = value.length; c < cl; c++ ) {
 
-								if ( jQuery.support.classList ) {
-									elem.classList.add( value[ c ] );
-								} else {
-									if ( className.indexOf( " " + value[ c ] + " " ) < 0 ) {
-										elem.className += " " + value[ c ];
-									}
+							if ( jQuery.support.classList ) {
+								elem.classList.add( value[ c ] );
+							} else {
+								if ( className.indexOf( " " + value[ c ] + " " ) < 0 ) {
+									elem.className += " " + value[ c ];
 								}
 							}
 						}
 					}
 				}
 			}
-			return this;
 		}
-	});
+		return this;
+	};
+
 })( jQuery );
